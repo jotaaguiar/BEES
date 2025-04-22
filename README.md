@@ -26,7 +26,7 @@ Demonstrar a criação de um pipeline completo que abrange:
 
 - **Docker**
 - **Docker Compose**
-
+- Caso não possua o Docker Localmente, instruções para a instalação ao final da documentação.
 ### Passos para execução
 
 1. Inicie os containers:
@@ -91,6 +91,7 @@ Após a execução do pipeline no Airflow:
 ---
 
 ## 💻 Instalação do Docker
+
 ### 🧱 Instalar o WSL 2
 
 No **PowerShell** como Administrador, execute:
