@@ -22,19 +22,6 @@ Senha padrão: `airflow`
 2. **Silver Layer**: Converte os dados para formato Parquet, particionado por estado da cervejaria.
 3. **Gold Layer**: Gera uma visão analítica com a contagem de cervejarias por tipo e estado.
 
-## 📈 Monitoramento
-
-O pipeline inclui notificação por e-mail via `EmailOperator` em caso de falha, possibilitando alertas rápidos. Para habilitar o envio, configure as credenciais SMTP no backend do Airflow.
-
-## 🧪 Testes
-
-A aplicação conta com testes unitários para as etapas de extração e transformação:
-
-```bash
-cd dags/tests
-python -m unittest test_fetch.py
-python -m unittest test_transform.py
-```
 
 ## 📂 Estrutura do Data Lake
 
