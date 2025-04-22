@@ -1,0 +1,22 @@
+version: '3'
+services:
+  spark:
+    build: ./docker/pyspark
+    container_name: spark
+    volumes:
+      - ./data_lake:/opt/bitnami/data_lake
+
+  airflow:
+    build: ./docker/airflow
+    container_name: airflow
+    restart: always
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data_lake:/opt/airflow/data_lake
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+    command: >
+      bash -c "airflow db init && airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin && airflow webserver & airflow scheduler"
